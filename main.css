@@ -8,11 +8,11 @@ html {
 }
 body {
 	font-family: Arial, Helvetica, sans-serif;
-    font-size: 87.5%;
-    width: 99%;
-	max-width: 960px;
+    font-size: 100%;
+    width: 99%;                     /* changed from 800 pixels */
+    max-width: 960px;
     margin: 0 auto;
-    border: 3px solid #800000;
+    border: 3px solid #931420;
     background-color: #fffded;
 }
 a:focus, a:hover {
@@ -22,14 +22,14 @@ a:focus, a:hover {
 header {
 	padding: 1.5em 0 2em 0;
 	border-bottom: 3px solid #931420;
-	background-image: -moz-linear-gradient(
+		background-image: -moz-linear-gradient(
 	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
 	background-image: -webkit-linear-gradient(
-	    30deg, #f6bb73 0%, #fffded 30%, white 50%, #fffded 80%, #f6bb73 100%);
+	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
 	background-image: -o-linear-gradient(
-	    30deg, #f6bb73 0%, #fffded 30%, white 50%, #fffded 80%, #f6bb73 100%);
+	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
 	background-image: linear-gradient(
-	    30deg, #f6bb73 0%, #fffded 30%, white 50%, #fffded 80%, #f6bb73 100%);
+	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
 }
 header h2 {
 	font-size: 175%;
@@ -41,12 +41,12 @@ header h3 {
 }
 header img {
 	float: left;
-	padding: 0 0.31%;
+	padding: 0 3.75%;
 }
 .shadow {
 	text-shadow: 2px 2px 2px #800000;
 }
-/* the styles for the navigation menu */
+
 #nav_menu ul {
 	list-style-type: none;
 	margin: 0;
@@ -54,11 +54,11 @@ header img {
 	position: relative;
 }
 #nav_menu ul li {
-	float: right;
+	float: left;
+    width: 20%;
 }
 #nav_menu ul li a {
     display: block;
-    width: 16.67%;
     text-align: center;
     padding: 1em 0;
     text-decoration: none;
@@ -70,6 +70,7 @@ header img {
 	color: yellow;
 }
 #nav_menu ul ul {
+	width: 100%;
     display: none;
     position: absolute;
     top: 100%;
@@ -86,20 +87,20 @@ header img {
     display: block;
 }
 
-/* the styles for the main content */
 main {
 	clear: left;
 }
-/* the styles for the section */
+
+
 section {
-	width: 54.69%;
+	width: 65.625%;
 	float: right;
-	padding: 0 2% 20px;
+	padding: 0 2.5% 20px 2.5%;
 }
 section h1 {
 	font-size: 150%;
 	padding: .5em 0 .25em 0;
-	margin: 0;               /* If you remove this, the margins in normalize.css will be applied. */
+	margin: 0;
 }
 section h2 {
 	color: #800000;
@@ -115,12 +116,12 @@ section blockquote {
 }
 section ul {
 	padding: 0 0 .25em 1.25em;
+	list-style-type: circle;
 }
 section li {
 	padding-bottom: .35em;
 }
 
-/* the styles for the article */
 article {
 	padding: .5em 0;
 	border-top: 2px solid #800000;
@@ -135,20 +136,17 @@ article h3 {
 }
 article img {
 	float: right;
-	width: 40%;
+	max-width: 40%;
 	min-width: 150px;
 	margin: .5em 0 1em 1em;
 	border: 1px solid black;
 }
 
-/* the styles for the aside */
+
 aside {
-	width: 22.4%;
+	width: 26.875%;
 	float: right;
-	padding-top: 0;
-	padding-right: 0;
-	padding-left: 2%;
-	padding-bottom: 20px;
+	padding: 0 0 20px 2.5%;
 }
 aside h2 {
 	color: #800000;
@@ -164,7 +162,6 @@ aside img {
 	padding-bottom: 1em;
 }
 
-/* the styles for the footer */
 footer {
 	background-color: #931420;
 	clear: both;
@@ -175,28 +172,47 @@ footer p {
 	color: white;
 	padding: 1em 0;
 }
-@media only screen and (max-width: 959px)
-{
-	body section h1{
-		font-size: 130%;
-	}
-	body section h2, aside h2{
-		font-size: 120%;
-	}
+#mobile_menu {
+	display: none;
 }
-/*
-@media only screen and (max-width: 767px)
-{
-	body section h1{
-		font-size: 130%;
-	}
-	body section h2, aside h2{
-		font-size: 120%;
-	}
-	header .img
-	{
+
+
+@media only screen and (max-width: 959px) {
+	section h1 { font-size: 135%; }
+	section h2, aside h2 { font-size: 120%; }
+}
+
+
+@media only screen and (max-width: 767px) {
+	header img { float: none; }
+	header { text-align: center; }
+	section {
 		float: none;
+		width: 95%;
+	}
+	aside {
+		float: none;
+		padding-right: 2.5%;
+		width: 95%;
+	}
+	article img { max-width: 30%; }
+	#speakers {
+		-moz-column-count: 2;
+		-webkit-column-count: 2;
+		column-count: 2;
+	}
+	#nav_menu {
+		display: none;
+	}
+	#mobile_menu {
+		display: block;
+	}
+	.slicknav_menu {
+		background-color: #800000 !important;
 	}
 }
 
-*/
+
+@media only screen and (max-width: 479px) {
+	body { font-size: 90%; }
+}
